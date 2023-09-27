@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap');
+/*Variables*/
+:root{
+   /*Tamaño-Secciones*/
+   --header-height:7.5rem;
+   --slider-height:calc((100vh) - (var(--header-height)));
+   /*Color*/
+   
+   /*gradiente*/
+   /*--body-color: linear-gradient(to right bottom, #f93841, #fb494d, #fd5759, #fe6464, #ff7070, #ff7274, #ff7577, #ff777b, #ff7078, #ff6a75, #ff6372, #ff5b70);*/
+   --body-color: linear-gradient(to bottom, #ece4e9, #e1cede, #d3b9d6, #c0a5cf, #a993cb, #9d88ca, #8e7dca, #7e73ca, #7d6bcc, #7c62cd, #7d58cd, #7f4dcd);
+   /*Font-weight*/
+   --max-bold:900;
+   --med-bold:600;
+   --min-bold:500;
+   /*Font-size*/
+}
+
+
+
+/***************/
+html{
+   scroll-behavior: smooth;
+   a{text-decoration: none; color: #332f2f;}
+   input{border:none;outline:none;}
+body{
+   background: var(--body-color);
+   font-family: Montserrat;
+   color: #332f2f;
+   font-size: 1.2rem;
+   font-weight: var(--med-bold);
+   
+   header{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: transparent;
+      height: var(--header-height);
+      position:sticky;
+      top:0;
+      z-index: 100;
+      
+      a{
+         display: flex;
+         align-items: center;
+         
+         img{
+            width: 6rem;
+         }
+         h1{
+            font-size: 3rem;
+            font-weight: var(--max-bold);
+         }
+      }
+   
+      nav{
+         display: flex;
+         font-size: 1.3rem;
+         font-weight: var(--med-bold);
+         a{
+            padding:1.3rem ;
+         }
+      }
+      
+   }
+
+   .slider{
+      
+      margin: 0 15vw;
+         display: flex;
+        
+         flex-wrap: nowrap;
+         overflow-x: none;  
+         scroll-snap-type: x mandatory;
+         height:var(--slider-height);
+         
+        .sectionSlider{
+         
+            display: flex;
+            flex: 0 0 auto;
+            width: 100%;
+            scroll-snap-align: center;
+            .pop-img{
+               width: 50%;
+               object-fit: contain;
+               
+            }
+            .textSlider{
+               display: flex;
+               flex-direction: column;
+               justify-content: space-around;
+               width: 50%;
+               
+               .slider-top{
+                  font-size: 1.5rem;
+               }
+               .slider-titulo{
+                  font-size: 2rem;
+                  text-transform: uppercase;
+               }
+               .slider-frase{
+                  text-transform: uppercase;
+                  font-size: 5rem;
+                  font-weight: var(--max-bold);
+                  line-height: 1.2;
+               }
+               .slider-sinopsis{
+                  line-height: 1.5;
+               }
+
+               .botonera{
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                  font-size: 1.7rem;
+                  .slider-botonder{
+                     border: 3px solid rgb(249, 121, 121) ;
+                     border-radius: 1rem;
+                     background-color: #ef6a61;
+                     box-shadow:black 10px 10px 20px  ;
+                     padding: 1rem;
+                  }
+               }
+            }
+        }
+      
+   }
+
+   .seccion-acc{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 8rem 0;
+      border-bottom:1px solid black;
+      h2{
+         text-align: center;
+         font-size: 3rem;
+         font-weight: var(--max-bold);
+         margin-bottom: 3rem;
+      }
+      .accCat{
+         width: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+         .card{
+            height: 400px;
+            width: 25%;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 20, 50, 0.5);
+            border-radius: 5rem;
+            img{
+               height:60%;
+               max-width: 50%;
+               object-fit: contain;
+            }
+            h3{
+               font-size: 1.6rem;
+               margin-bottom: 1rem;
+            }
+
+         }
+         .card:hover{
+            animation:shake-vertical 0.8s linear both} @keyframes shake-vertical{0%,100%{transform:translateY(0)}10%,30%,50%,70%{transform:translateY(-8px)}20%,40%,60%{transform:translateY(8px)}80%{transform:translateY(6.4px)}90%{transform:translateY(-6.4px)}
+         }
+      }
+      .btVerMas{
+         padding: 2rem;
+         margin-top: 3rem;
+         margin-bottom: 2rem;
+         color: white;
+         background-color: #db5057;
+         border-radius: 3rem;
+         border: 3px solid black;
+         box-shadow:#332f2f 10px 10px 10px ;
+      }
+   }
+
+   //Aca iria seccion adornos
+   ///
+   
+   .seccion-juegos{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      h2{
+         text-align: center;
+         font-size: 3rem;
+         font-weight: var(--max-bold);
+         margin-bottom: 3rem;
+      }
+
+      .juegos-grilla{
+         display: grid;
+         grid-template-columns: repeat(3,1fr);
+         gap: 10rem;
+         flex-wrap: wrap;
+         .cardJuego{
+            width: 300px;
+            height: 400px;
+            display: grid;
+            grid-template-rows: 70% 30%;
+            overflow-y: hidden;
+            box-shadow:10px 10px 20px -12px rgba(255,255,255,.55);
+            border-top-right-radius: 3rem;
+            border-bottom-left-radius: 3rem;
+            img{
+               width: 100%;
+               object-fit: contain;
+               border-top-right-radius: 3rem;
+            }
+            div{
+               background: #252525;
+               color: whitesmoke;
+               text-align: center;
+               border-bottom-left-radius: 3rem;
+            }
+         }
+      }
+      .btVerMas{
+         padding: 2rem;
+         margin-top: 3rem;
+         color: white;
+         background-color: #db5057;
+         border-radius: 3rem;
+         border: 3px solid black;
+         box-shadow:#332f2f 10px 10px 10px ;
+      }
+   }
+
+
+   .prod-container{
+      height: 400px;
+      .prod-innercontainer{
+         background-image: url("../../../public/img/accesorio-img2.png");
+         background-size: cover;
+         background-position: center;
+         position: relative;
+         opacity: 0.8;
+         .prod-tituloPrincipal{
+            display: flex;
+            justify-content: center;
+            font-size: 3rem;
+            color: black;
+            background-color: rgb(227, 224, 224);
+            width: 100%;
+            box-shadow:20px 25px 20px -12px rgba(255,255,255,.55);
+            border-bottom-left-radius: 2.5rem;
+            border-top-right-radius: 2.5rem;
+         }
+      }
+   }
+   .prod-area{
+      padding-top: 80px;
+      padding-bottom: 80px;
+      
+
+      .prod-area-container{
+         width: 1200px;
+         margin: auto;
+         
+
+
+         
+        
+         .container-cards{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            .cards-separador{
+               padding: 0 1rem;
+               background-color: yellow;
+               border: 1px solid black;
+
+               .cards-inner{
+                  padding: 1rem;
+                  padding-bottom: 1.5rem;
+                  margin-bottom: 2rem;
+                  background-color: orange;
+
+                  .cards-img{
+                     
+                     height: 250px;
+                     /*background-image: url("../../../public/img/adorno-img2.png");*/
+                     background-position: center;
+                     background-size: cover;
+                     
+                     .valores-producto{
+                        z-index: 1;
+                        display: flex;
+                        flex-direction: row-reverse;
+                        justify-content: space-between;
+                        
+                        
+                        .precio-producto{
+                           display: inline-block;
+                           background-color: red;
+                        }
+                     }
+                     
+                     
+                  }
+                  .cards-info{
+                     background-color: gray;
+                     text-align: center;
+                     ul{
+                        display: flex;
+                        justify-content: space-evenly;
+                        border: 1px solid black;
+                     }
+                  }
+               }
+            }
+         }
+
+         .btn-pagina{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 0px;
+         }
+      }
+   }
+}
+}

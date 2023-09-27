@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+//Aca debo importar css y js
+//js/jsx
+import { datosSlider, datosAcc, datosAdo, datosJuegos, listaProductos } from './data.js';
+import Header from './template/header';
+import Slider from './secciones/slider';
+import AccesorioCategorias from './secciones/accesorio-categorias';
+import AdornosCategorias from './secciones/adornos-categorias';
+import NuevosJuegos from './secciones/nuevosJuegos';
+import Productos from './template/productos-template.jsx';
+
+//Swiper
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+//css
+import './css/reset.css';
+import './css/scss/style.scss';
+
+// //React-router-dom
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+function Main(){
+  return <main>
+    <Slider lista={datosSlider}></Slider>
+    <AccesorioCategorias listaAcc={datosAcc}></AccesorioCategorias>
+    <AdornosCategorias listaAdo={datosAdo}></AdornosCategorias>
+    <NuevosJuegos listaJue={datosJuegos}></NuevosJuegos>
+  </main>
+}
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+               <Header/>
+
+                <Routes>
+                    <Route path='/' element={<Main/>}/>
+                    <Route path='/accesorios' element={<Productos listaProd={listaProductos}/>}/> 
+                </Routes>
+      </Router>
+      
     </div>
   );
 }
 
 export default App;
+
+
+// <Route path='/adornos' element={<Productos/>}/>
+//                     <Route path='/Juegos' element={<Productos/>}/>
